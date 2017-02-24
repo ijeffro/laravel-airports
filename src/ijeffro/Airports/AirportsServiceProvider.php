@@ -69,7 +69,7 @@ class AirportsServiceProvider extends ServiceProvider {
      */
     protected function registerCommands()
     {
-        $this->app['command.airports.migration'] = $this->app->share(function($app)
+        $this->app->singleton('command.airports.migration', function ($app)
         {
             return new MigrationCommand($app);
         });
